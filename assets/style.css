@@ -43,7 +43,7 @@
     height: 200px;
 }
 
-@media(min-width: 672px){
+@media(min-width: calc(64em + 1px)){
     .project-name > img{
         position: absolute;
     }
