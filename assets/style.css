@@ -39,6 +39,10 @@
     left: 20px;
 }
 
+.project-name > .pad{
+    height: 200px;
+}
+
 @media(min-width: 672px){
     .project-name > img{
         position: absolute;
