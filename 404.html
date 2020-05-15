@@ -2,13 +2,6 @@
 <html lang="ru">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <script>window.params = (() => {
-      const parts = window.location.pathname.split('/');
-      parts.shift();
-      parts.shift();
-      const code = decodeURIComponent(parts.join('/'));
-      return JSON.parse(atob(code))
-    })()</script>
     <meta property="og:title" content="PayMFC Donation">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://bassteam.github.io/PayMFC-SDK/assets/logos/paymfc_with_bg.png">
@@ -28,7 +21,22 @@
       <h1 class="project-name"><img src="/PayMFC-SDK/assets/logos/paymfc_no_bg.svg" width="200"></h1>
     </header>
     <main id="content" class="main-content" role="main">
+      <img class="avatar">
+      <div class="name"></div>
+      <a class="donate-button">Задонатить</a>
     </main>
-  
-
-</body></html>
+    <script>
+      const parts = window.location.pathname.split('/');
+      parts.shift();
+      parts.shift();
+      const { name, address, image } = JSON.parse(atob(decodeURIComponent(parts.join('/'))));
+      const title = document.querySelector('head > title');
+      const avatar = document.querySelector('#content > .avatar');
+      const nameElement = document.querySelector('#content > .name');
+      const button = document.querySelector('#content > .donate-button');
+      title.innerText += name;
+      avatar.setAttribute('src', image || 'https://i2.wp.com/profile.mfcoin.net/img/guest_avatar.png?ssl=1');
+      button.setAttribute('href', 'mfcoin://' + address)
+    </script>
+  </body>
+</html>
