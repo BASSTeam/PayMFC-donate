@@ -49,3 +49,7 @@
 .donate-button-hint{
     display: none;
 }
+
+.page-header{
+    padding: 0 !important;
+}
