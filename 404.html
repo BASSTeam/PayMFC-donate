@@ -27,6 +27,7 @@
       <img class="avatar">
       <div class="name"></div>
       <div class="donate-button"><a>Задонатить</a></div>
+      <div class="donate-button-hint">У вас должен быть установлен кошелёк, чтобы воспользоваться данной функцией. Если он не открылся на передний план, проверьте его вручную</div>
     </main>
     <script>
       const parts = window.location.pathname.split('/');
@@ -37,10 +38,14 @@
       const avatar = document.querySelector('#content .avatar');
       const nameElement = document.querySelector('#content .name');
       const button = document.querySelector('#content .donate-button > a');
+      const buttonHint = document.querySelector('#content .donate-button-hint');
       title.innerText += name;
       avatar.setAttribute('src', image || 'https://i2.wp.com/profile.mfcoin.net/img/guest_avatar.png?ssl=1');
       nameElement.innerText = name;
-      button.setAttribute('href', 'mfcoin:' + address)
+      button.setAttribute('href', 'mfcoin:' + address);
+      button.addEventListener('click', () => {
+        buttonHint.style.display = 'unset';
+      })
     </script>
   </body>
 </html>
