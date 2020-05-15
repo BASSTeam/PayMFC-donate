@@ -1,1 +1,15 @@
+#content{
+    padding-top: 0;
+    text-align: center;
+}
 
+#content .avatar{
+    width: 250px;
+    height: 250px;
+    margin-top: -125px;
+    border-radius: 50%;
+}
+
+#content .name{
+    font-size: 32px;
+}
